@@ -157,6 +157,7 @@ DIST          = ../../../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf \
+		../Chaffeylab6/.qmake.stash \
 		../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -172,7 +173,10 @@ DIST          = ../../../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/lex.prf \
-		../Chaffeylab6/Chaffeylab6.pro binarytree.h ../Chaffeylab6/main.cpp
+		../Chaffeylab6/Chaffeylab6.pro binarytree.h \
+		heap.h \
+		workorder.h \
+		telephonedirectory.h ../Chaffeylab6/main.cpp
 QMAKE_TARGET  = Chaffeylab6
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Chaffeylab6
@@ -320,6 +324,7 @@ Makefile: ../Chaffeylab6/Chaffeylab6.pro ../../../Qt/5.4/clang_64/mkspecs/macx-c
 		../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -444,6 +449,7 @@ Makefile: ../Chaffeylab6/Chaffeylab6.pro ../../../Qt/5.4/clang_64/mkspecs/macx-c
 ../../../Qt/5.4/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.4/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.4/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.4/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.4/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt/5.4/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -504,7 +510,8 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../Chaffeylab6/main.cpp ../Chaffeylab6/binarytree.h
+main.o: ../Chaffeylab6/main.cpp ../Chaffeylab6/binarytree.h \
+		../Chaffeylab6/heap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Chaffeylab6/main.cpp
 
 ####### Install
